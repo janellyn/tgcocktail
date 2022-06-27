@@ -177,9 +177,9 @@ namespace telegrambot222
                 var cocktail = await SearchByIngredient(name);
                 Cocktail2 drinks = cocktail;
 
-                if (drinks.drinks == null) await botClient.SendTextMessageAsync(message.Chat.Id, "Not found your ingredient :(");
+                if (drinks == null) await botClient.SendTextMessageAsync(message.Chat.Id, "Not found your ingredient :(");
 
-                if (drinks.drinks != null)
+                if (drinks != null)
                     foreach (var drink in drinks.drinks)
                         if (drink.strDrink != null)
                             await botClient.SendTextMessageAsync(message.Chat.Id, $"Name: {drink.strDrink}" +
